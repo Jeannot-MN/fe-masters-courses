@@ -1,15 +1,7 @@
-const Pet = (props) => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, props.name),
-    React.createElement("h2", {}, props.animal),
-    React.createElement("h2", {}, props.breed),
-  ]);
-};
+import ReactDOM from "react-dom/client";
+import Pet from "./Pet";
 
-import React from "react";
-import ReactDOM  from "react-dom";
-
-const App = () => {
+/* const App = () => {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, "Adopt Me!"),
     React.createElement(Pet, {
@@ -28,14 +20,27 @@ const App = () => {
       breed: "Chinese",
     }),
   ]);
+}; */
+
+const App = () => {
+  return (
+    <div>
+      <h1>Adopt Me</h1>
+      <Pet name="Luna" animal="dog" breed="Havanese" />
+      <Pet name="Pepper" animal="bird" breed="Cockatail" />
+      <Pet name="Doink" animal="cat" breed="Mised" />
+    </div>
+  );
 };
 
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
 
+root.render(<App />);
+
 //root.render(App) // Why doesn't this work??
 
-root.render(React.createElement(App));
+// root.render(React.createElement(App));
 /* root.render(React.createElement(function () {
     return {
         "type": "div",
