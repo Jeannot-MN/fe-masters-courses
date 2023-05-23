@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import PetList from "./PetList";
 import useBreedList from "./useBreedList";
-import { useQuery } from "@tanstack/react-query";
+
 import fetchPets from "./fetchPets";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
