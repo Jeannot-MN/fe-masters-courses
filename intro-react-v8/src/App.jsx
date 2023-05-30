@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import SearchParams from "./SearchParams";
 import DetailsWrapper from "./Details";
+import { AdoptedPetContextProvider } from "./AdoptedPetContext";
 
 /* const App = () => {
   return React.createElement("div", {}, [
@@ -42,15 +43,17 @@ const App = () => {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <header>
-          <Link to={"/"}>
-            <h1>Adopt Me</h1>
-          </Link>
-        </header>
-        <Routes>
-          <Route path="/" element={<SearchParams />} />
-          <Route path="/details/:id" element={<DetailsWrapper />} />
-        </Routes>
+        <AdoptedPetContextProvider>
+          <header>
+            <Link to={"/"}>
+              <h1>Adopt Me</h1>
+            </Link>
+          </header>
+          <Routes>
+            <Route path="/" element={<SearchParams />} />
+            <Route path="/details/:id" element={<DetailsWrapper />} />
+          </Routes>
+        </AdoptedPetContextProvider>
       </QueryClientProvider>
     </BrowserRouter>
   );

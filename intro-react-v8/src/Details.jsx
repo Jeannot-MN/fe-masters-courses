@@ -2,13 +2,18 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import fetchPet from "./fetchPet";
 import ErrorBoundry from "./ErrorBoundry";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
+import { AdoptedPetContext } from "./AdoptedPetContext";
 
 const Details = () => {
   const { id } = useParams();
   const petDetails = useQuery(["details", id], fetchPet);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
+  const [adoptedPets, setAdoptedPets] = useContext(AdoptedPetContext);
 
   if (petDetails.isLoading) {
     return (
@@ -34,7 +39,15 @@ const Details = () => {
           <div>
             <h1>Would you like to adopt {pet.name}</h1>
             <div className="buttons">
-              <button>Yes</button>
+              <button
+                onClick={() => {
+                  setAdoptedPets([...adoptedPets, pet]);
+                  setShowModal(false);
+                  navigate("/");
+                }}
+              >
+                Yes
+              </button>
               <button onClick={() => setShowModal(false)}>No</button>
             </div>
           </div>
