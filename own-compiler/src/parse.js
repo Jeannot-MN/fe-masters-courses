@@ -1,3 +1,22 @@
+import { isClosingParenthesis, isOpeningParenthesis } from "./utils";
+
+function parenthesize(tokens){
+  const token = tokens.shift();
+
+  if(isOpeningParenthesis(token.value)){
+    const expression = [];
+    while(!isClosingParenthesis(token.value)){
+      expression.push(parenthesize(token));
+    }
+
+    tokens.shift();
+
+    return expression;
+  }
+
+  return tokens;
+}
+
 export function parse(tokens){
   let ast = [];
 
