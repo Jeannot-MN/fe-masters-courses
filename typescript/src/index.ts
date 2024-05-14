@@ -30,3 +30,27 @@ const n = 76 //76 is a type in this case, think of types as the allowed set of a
 
 let n2= 76 as 76 // This is litteral type
 // n2 = 43 //This Break because 76 is the type of n2 
+
+type PhoneBook = {
+    [k: string] : {
+        country: string,
+        area: string,
+        number: string
+    }
+}
+
+let phoneBook: PhoneBook = {}
+
+phoneBook["JMN"] = {
+    country: "SA",
+    area: "Gauteng",
+    number: "1234567890"
+}
+
+phoneBook.john = {
+    country: "SA",
+    area: "Gauteng",
+    number: "1234567890"
+}
+
+console.log(phoneBook)
