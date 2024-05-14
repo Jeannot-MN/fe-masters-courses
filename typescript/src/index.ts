@@ -21,3 +21,12 @@ class Person {
 
 let p = new Person("JMN", 40);
 console.log(p.greet())
+
+
+let temperature = 6; // Type Inference
+
+// Non re-assignability from const and non-mutability from 76
+const n = 76 //76 is a type in this case, think of types as the allowed set of assignable values
+
+let n2= 76 as 76 // This is litteral type
+// n2 = 43 //This Break because 76 is the type of n2 
