@@ -54,3 +54,23 @@ phoneBook.john = {
 }
 
 console.log(phoneBook)
+
+// JSON type exercise
+type JSONPrimitive = number | string | boolean | null
+type JSONValue =  JSONPrimitive | JSONArray | JSONObject
+type JSONObject = {
+    [key: string] : JSONValue
+}
+type JSONArray = JSONValue[]
+
+type JSON_Clone = JSONObject | JSONArray | JSONValue
+
+let json : JSON_Clone = {
+    "name": "JMN",
+    "age": 78,
+    "merits": [
+        {"id": 1, "description": "Some merit"}, 2
+    ],
+    "active": false,
+    "is_sad": null
+}
