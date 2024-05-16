@@ -74,3 +74,20 @@ let json : JSON_Clone = {
     "active": false,
     "is_sad": null
 }
+
+
+//Type queries
+//keyof means from this type make a type out it this type's keys, Object.keys() as types
+type _Person = {
+    name: string
+    age: number
+}
+type P1 = keyof _Person
+
+//Get type of a given value
+let p_: _Person = {
+    name: "Person",
+    age:34
+}
+type P2 = typeof p_
+
