@@ -91,3 +91,63 @@ let p_: _Person = {
 }
 type P2 = typeof p_
 
+// Dictionary map, filter, reduce
+const fruits = {
+    apple: { color: "red", mass: 100 },
+    grape: { color: "red", mass: 5 },
+    banana: { color: "yellow", mass: 183 },
+    lemon: { color: "yellow", mass: 80 },
+    pear: { color: "green", mass: 178 },
+    orange: { color: "orange", mass: 262 },
+    raspberry: { color: "red", mass: 4 },
+    cherry: { color: "red", mass: 5 },
+}
+
+interface Dict<T> {
+    [k: string]: T
+}
+
+function mapDic<T, U>(dict: Dict<T>, callback: (item: T, name: string) => U): Dict<U>{
+    let output: Dict<U> = {}
+    for(let name in dict){
+        output[name] = callback(dict[name], name)
+    }
+    
+    return output
+}
+
+const newMap = mapDic(fruits, (fruit, name) => {
+    return {
+        ...fruit,
+        kg: 0.001 * fruit.mass,
+        name
+    }
+})
+
+console.log(newMap)
+
+function filter<T>(dict: Dict<T>, predicate: (fruit: T, name: string) => boolean):Dict<T> {
+    let output: Dict<T> ={}
+    for (const name in dict) {
+        if(predicate(dict[name], name)){
+            output[name] = dict[name]
+        } 
+    }
+    return output
+}
+
+const filterDict = filter(fruits, (fruit, _) => fruit.mass > 100)
+console.log(filterDict)
+
+function reduce<T, U>(dict: Dict<T>, callback: (prev: U, item: T) => U, initialValue: U): U {
+    let output = initialValue
+    for(const name in dict) {
+        output = callback(output, dict[name])
+    }
+    
+    return output
+}
+
+const basketMass = reduce(fruits, (prev, item)=>prev + item.mass,0)
+
+console.log({basketMass})
