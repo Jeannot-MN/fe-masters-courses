@@ -93,3 +93,8 @@
     ```
 
     ![Load](image-5.png)
+
+  
+  # Problem with Legacy Metrics:
+    - With the introduction of client-side rendering these 2 metrics above mean nothing because the document loaded into the browser is empty,
+    the two events would happen right away, thus telling us nothing about the page performance.
