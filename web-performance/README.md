@@ -29,7 +29,7 @@
     How well you are able to help search engines understand and rank your content.
     [Some Good Stats on CTR](https://backlinko.com/google-ctr-stats)
 
-    - #1 Ranking Page gets 10 times more click than number 10
+    - #1 Ranking Page gets 10 times more click than number 10![alt text](image-6.png)
     ![CTR Beakdown by Position](image.png)
 
     -  As 2020, Google made it a thing that the performance of your site will impact your site ranking ===> You need to be fast to rank well.
@@ -52,7 +52,7 @@
   
   ![Waterfall Chart Example 1](image-2.png)
   
-  ![Waterfall Chart Example 2](image-3.png)
+  ![Waterfall Chart Example 2](image-2.png)
   
   ![Waterfall Chart Example 3](image-3.png)
   
@@ -63,3 +63,33 @@
     - Green: Images
     - Brown: Fecth/Other
     - Teal: Fonts 
+
+# Legacy Metrics:
+
+  - ## DOMContentLoaded:
+    The HTML document had been donwload and deferred scripts have been executed:
+
+
+    Here the structure of the page is done but images may not be displayed yet.
+
+    ```
+      window.addEventListener('DOMContentLoaded', (event) => {
+        console.log(`DOMContentLoaded at ${event.timeStamp} ms`)
+      })
+    ```
+
+    ![DOMContentLoaded](image-4.png)
+
+
+  - ## Load:
+    HTML and all known ressources have been downloaded and rendered. Except those that are lazy loaded.
+
+    Here the spinner on the browser disappears. The document is ready and updates can be done.
+
+    ```
+      window.addEventListener('load', (event) => {
+        console.log(`DOMContentLoaded at ${event.timeStamp} ms`)
+      })
+    ```
+
+    ![Load](image-5.png)
