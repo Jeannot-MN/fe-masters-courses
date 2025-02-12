@@ -54,7 +54,7 @@
   
   ![Waterfall Chart Example 2](image-3.png)
   
-  ![Waterfall Chart Example 3](image-5.png)
+  ![Waterfall Chart Example 3](image-3.png)
   
   - The colors have meaning:
     - Blue: HTML Documents
