@@ -44,22 +44,22 @@
 
   - Case studies of the impact of web performance optimazation found [here](https://wpostats.com/)
 
-  # How do we measure web performance?
+# How do we measure web performance?
 
-    - We use waterfall chart to measure how fast a web app is.
+  - We use waterfall chart to measure how fast a web app is.
 
-    - It usually shows the lifecycle of a page from the request to full load
-    
-    ![Waterfall Chart Example 1](image-2.png)
-    
-    ![Waterfall Chart Example 2](image-3.png)
-    
-    ![Waterfall Chart Example 3](image-5.png)
-    
-    - The colors have meaning:
-      - Blue: HTML Documents
-      - Purple: Stylesheets
-      - Yellow: Javascript
-      - Green: Images
-      - Brown: Fecth/Other
-      - Teal: Fonts 
+  - It usually shows the lifecycle of a page from the request to full load
+  
+  ![Waterfall Chart Example 1](image-2.png)
+  
+  ![Waterfall Chart Example 2](image-3.png)
+  
+  ![Waterfall Chart Example 3](image-5.png)
+  
+  - The colors have meaning:
+    - Blue: HTML Documents
+    - Purple: Stylesheets
+    - Yellow: Javascript
+    - Green: Images
+    - Brown: Fecth/Other
+    - Teal: Fonts 
