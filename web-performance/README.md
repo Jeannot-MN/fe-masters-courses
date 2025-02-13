@@ -96,5 +96,39 @@
 
   
 # Problem with Legacy Metrics:
+
   - With the introduction of client-side rendering these 2 metrics above mean nothing because the document loaded into the browser is empty,
   the two events would happen right away, thus telling us nothing about the page performance.
+
+
+# Core Web Vitals:
+  Newer metrics introduced by Google to abjectively measure perfomance regardless of the tech used for your app.
+
+  The really measure 3 things mainly:
+    - How fast your site visibly loads: Largest Contentful Paint(LCP)
+
+      How fast does your site visibly load the most important element.
+
+      How do we deceide the most important thing? Well we dont!! Google considers the larget element by pixel area on the page to be the most important,
+
+      With some rules of course:
+        - Cannot have an 0 opacity,
+        - Size whould be less 100%
+        - Does not count for Low entropy Images < 0.05: Entropy is Size(Mb) / number of pixel displaying (440 * 400 for example)
+
+      - Guidelines: This should be less 2.5s and not beyond 4s
+
+    - How smooth things load: Cumulative Layout Shift(CLS)
+
+      How smooth and predictably elements load into the page.
+
+      This is measured by taking impact-fraction = impact-size / viewport height, impact height = how many rows of pixels have to change in the shift
+      distance-fraction = height of new element / viewport
+
+      CLS = impact-size * distance-fraction
+
+      0.1 or less is good, 0.25 above is poor.
+
+      Skeletons/placeholders are the best way to improve CLS.
+
+    - How quickly users can interract with the page: Interaction to Next Paint(INP)
