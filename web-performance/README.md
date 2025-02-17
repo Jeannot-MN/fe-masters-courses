@@ -132,3 +132,53 @@
       Skeletons/placeholders are the best way to improve CLS.
 
     - How quickly users can interract with the page: Interaction to Next Paint(INP)
+
+
+# How to capture perfomance metrics
+
+  - # Performance API:
+    API available in the browser to help measure performance related things:
+      - ```now()```: Returns a high resolution timestamp relative to the moment the page started, i.e. the time of the first GET request made by the browser in response to a user redirect.
+
+      - ```timeOrigin```: Return the actual timestamp at which the page started.
+
+      - ```getEntries()```: A bunch of performance metrics analytics, **Dig Further Into This**
+
+  - # Performance Observer:
+    The issue with performance API is that while we add custom code to measure performance, this code actuallu affects our metrics, so way we avoid this is through the use of observers,
+    ```
+      const performanceObserver = new PerformanceObserver((list, observer) =>{
+        list.getEntries().forEach((entry) => {
+          console.log(`Layout shifted by ${entry.value}`);
+        })
+      })
+
+      performanceObserver.observe({type: 'layout-shift', bufferred: true})
+
+      // buffered: true to make sure we get the entire historic of this event...
+    ```
+
+    We can also use package like ```web-vitals```, and subscribe to well defined event such as:
+    ```
+      import { onLCP, onCLS, onINP} from 'web-vitals';
+
+      onLCP(console.log) // This will log the captured LCP metrics to the console...
+    ```
+
+
+# Performance Test:
+  We have 3 main categories of test we can run:
+  - # Lab Data: 
+    Typically run on somedevice close to the server or on the server itself(local machine), this is usally done for diagnotic purpose and should not be considered user experience.
+
+  - # Synthetic Data:
+    Typically run on some other remote device/server, some dedicated service from which we request to go and run perfomance metrics.
+
+  - # Field Data:
+    This is actually the recording of performance metrics from the users device. this actually is the real view of what the user experience is like. And this usually gives more data point rather than just single instance tests from the above two.
+
+  - # Maximizing Lab Data:
+    To run better diagnotics test, we can run our test by simulating various factor on the browser to be a little more close to what that users are experiencing:
+    - Mobile vs Desktop Screen Sizes
+    - Network Conditions (Network Throttle)
+    - Processing Power (CPU Throttling)
