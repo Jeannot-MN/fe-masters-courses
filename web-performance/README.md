@@ -105,33 +105,33 @@
   Newer metrics introduced by Google to abjectively measure perfomance regardless of the tech used for your app.
 
   The really measure 3 things mainly:
-    - How fast your site visibly loads: Largest Contentful Paint(LCP)
+  - How fast your site visibly loads: Largest Contentful Paint(LCP)
 
-      How fast does your site visibly load the most important element.
+    How fast does your site visibly load the most important element.
 
-      How do we deceide the most important thing? Well we dont!! Google considers the larget element by pixel area on the page to be the most important,
+    How do we deceide the most important thing? Well we dont!! Google considers the larget element by pixel area on the page to be the most important,
 
-      With some rules of course:
-        - Cannot have an 0 opacity,
-        - Size whould be less 100%
-        - Does not count for Low entropy Images < 0.05: Entropy is Size(Mb) / number of pixel displaying (440 * 400 for example)
+    With some rules of course:
+      - Cannot have an 0 opacity,
+      - Size whould be less 100%
+      - Does not count for Low entropy Images < 0.05: Entropy is Size(Mb) / number of pixel displaying (440 * 400 for example)
 
-      - Guidelines: This should be less 2.5s and not beyond 4s
+    - Guidelines: This should be less 2.5s and not beyond 4s
 
-    - How smooth things load: Cumulative Layout Shift(CLS)
+  - How smooth things load: Cumulative Layout Shift(CLS)
 
-      How smooth and predictably elements load into the page.
+    How smooth and predictably elements load into the page.
 
-      This is measured by taking impact-fraction = impact-size / viewport height, impact height = how many rows of pixels have to change in the shift
-      distance-fraction = height of new element / viewport
+    This is measured by taking impact-fraction = impact-size / viewport height, impact height = how many rows of pixels have to change in the shift
+    distance-fraction = height of new element / viewport
 
-      CLS = impact-size * distance-fraction
+    CLS = impact-size * distance-fraction
 
-      0.1 or less is good, 0.25 above is poor.
+    0.1 or less is good, 0.25 above is poor.
 
-      Skeletons/placeholders are the best way to improve CLS.
+    Skeletons/placeholders are the best way to improve CLS.
 
-    - How quickly users can interract with the page: Interaction to Next Paint(INP)
+  - How quickly users can interract with the page: Interaction to Next Paint(INP)
 
 
 # How to capture perfomance metrics
