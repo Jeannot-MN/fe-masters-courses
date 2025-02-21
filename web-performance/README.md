@@ -5,7 +5,7 @@
 # What does slow look like?
 
   - Long time taken for page to load
-  - Elemenets jumping around
+  - Elements jumping around
   - Delays to click responses
   - Slow loading of images and vidoes
   - Laggy scrolling and animations
@@ -68,6 +68,9 @@
 
   - ## DOMContentLoaded:
     The HTML document had been donwload and deferred scripts have been executed:
+
+    The DOMContentLoaded event fires when the HTML document has been completely parsed, and all deferred scripts (<script defer src="…"> and <script type="module">) have downloaded and executed. It doesn't wait for other things like images, subframes, and async scripts to finish loading.
+    
 
 
     Here the structure of the page is done but images may not be displayed yet.
